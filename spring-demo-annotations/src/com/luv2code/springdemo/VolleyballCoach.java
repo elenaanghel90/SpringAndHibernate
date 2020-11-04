@@ -8,4 +8,9 @@ public class VolleyballCoach implements Coach{
     public String getDailyWorkout() {
         return "Run 5 km each day - volleyball!";
     }
+
+    @Override
+    public String getDailyFortune() {
+        return null;
+    }
 }

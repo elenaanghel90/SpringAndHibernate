@@ -1,16 +1,20 @@
 package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 //if on the component we don't set anything, the default id bean will be "tennisCoach" with lowerCase
-public class TennisCoach implements Coach{
+public class TennisCoach implements Coach {
 
+    //define field injection (Reflection)
+    @Autowired
+    @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
 
     //define a default constructor
-    public TennisCoach(){
+    public TennisCoach() {
         System.out.println(">>TennisCoach: inside the default constructor!");
     }
 
@@ -21,11 +25,12 @@ public class TennisCoach implements Coach{
 //        fortuneService=theFortuneService;
 //    }
 
-    @Autowired
-    public void doSomeCrazyStuff(FortuneService theFortuneService){
-        System.out.println(">>TennisCoach: inside the doSomeCrazyStuff() method!");
-        fortuneService=theFortuneService;
-    }
+//    //define method injection
+//    @Autowired
+//    public void doSomeCrazyStuff(FortuneService theFortuneService){
+//        System.out.println(">>TennisCoach: inside the doSomeCrazyStuff() method!");
+//        fortuneService=theFortuneService;
+//    }
 
 //    @Autowired
 //    public TennisCoach(FortuneService theFortuneService){

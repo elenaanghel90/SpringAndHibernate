@@ -10,7 +10,7 @@ public class VolleyballCoach implements Coach {
 
     //define field injection (Reflection)
     @Autowired
-    @Qualifier("randomFortuneService")
+    @Qualifier("randomFromFileFortunesService")
     private FortuneService fortuneService;
 
     //inject the properties values
@@ -22,7 +22,7 @@ public class VolleyballCoach implements Coach {
 
     //set @Qualifier on constructor
     @Autowired
-    public VolleyballCoach(@Qualifier("randomFortuneService") FortuneService fortuneService) {
+    public VolleyballCoach(@Qualifier("randomFromFileFortunesService") FortuneService fortuneService) {
         System.out.println(">> VolleyballCoach: inside constructor using @autowired and @qualifier");
         this.fortuneService = fortuneService;
     }
@@ -34,6 +34,6 @@ public class VolleyballCoach implements Coach {
 
     @Override
     public String getDailyFortune() {
-        return null;
+        return fortuneService.getFortune();
     }
 }

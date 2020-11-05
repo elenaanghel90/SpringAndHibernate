@@ -37,6 +37,13 @@ public class TennisCoach implements Coach {
 //        fortuneService = theFortuneService;
 //    }
 
+    //set @Qualifier on constructor
+    @Autowired
+    public TennisCoach(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
+        System.out.println(">> TennisCoach: inside constructor using @autowired and @qualifier");
+        fortuneService = theFortuneService;
+    }
+
     @Override
     public String getDailyWorkout() {
         return "Practice your backhand volley";

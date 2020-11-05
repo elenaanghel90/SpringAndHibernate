@@ -11,4 +11,7 @@
 
     <context:component-scan base-package="com.luv2code.springdemo"/>
 
+    <!--add the entry to load the property file -->
+    <context:property-placeholder location="classpath:sport.properties"/>
+
 </beans>

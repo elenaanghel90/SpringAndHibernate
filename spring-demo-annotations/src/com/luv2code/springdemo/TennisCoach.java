@@ -2,9 +2,12 @@ package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope(value= ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 //if on the component we don't set anything, the default id bean will be "tennisCoach" with lowerCase
 public class TennisCoach implements Coach {
 

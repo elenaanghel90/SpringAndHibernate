@@ -6,8 +6,10 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
 //if on the component we don't set anything, the default id bean will be "tennisCoach" with lowerCase
 public class TennisCoach implements Coach {
 
@@ -21,6 +23,17 @@ public class TennisCoach implements Coach {
         System.out.println(">>TennisCoach: inside the default constructor!");
     }
 
+    //define my init method
+    @PostConstruct
+    public void doMyStartupStuff(){
+        System.out.println(">> TennisCoach: inside of doMyStartupStuff()");
+    }
+
+    //define my destroy method
+    @PreDestroy
+    public void doMyCleanupStuff(){
+        System.out.println(">> TennisCoach: inside of doMyCleanupStuff()");
+    }
 //    //define a setter method for injection
 //    @Autowired
 //    public void setFortuneService(FortuneService theFortuneService){
@@ -41,11 +54,11 @@ public class TennisCoach implements Coach {
 //    }
 
     //set @Qualifier on constructor
-    @Autowired
-    public TennisCoach(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
-        System.out.println(">> TennisCoach: inside constructor using @autowired and @qualifier");
-        fortuneService = theFortuneService;
-    }
+//    @Autowired
+//    public TennisCoach(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
+//        System.out.println(">> TennisCoach: inside constructor using @autowired and @qualifier");
+//        fortuneService = theFortuneService;
+//    }
 
     @Override
     public String getDailyWorkout() {

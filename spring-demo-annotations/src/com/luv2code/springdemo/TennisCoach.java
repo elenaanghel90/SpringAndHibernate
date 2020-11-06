@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+//@Component
 //if on the component we don't set anything, the default id bean will be "tennisCoach" with lowerCase
 public class TennisCoach implements Coach {
 

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value= ConfigurableBeanFactory.SCOPE_SINGLETON)
+@Scope("value= ConfigurableBeanFactory.SCOPE_SINGLETON")
 //if on the component we don't set anything, the default id bean will be "tennisCoach" with lowerCase
 public class TennisCoach implements Coach {
 

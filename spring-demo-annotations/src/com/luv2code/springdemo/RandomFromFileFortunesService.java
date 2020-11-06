@@ -31,7 +31,7 @@ public class RandomFromFileFortunesService implements FortuneService{
             }
             scanner.close();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("The file was not found!",e);
 //            e.printStackTrace();
         }
                 return randomFortune;
